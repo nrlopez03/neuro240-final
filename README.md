@@ -1,64 +1,15 @@
-# PacmanDQN
-Deep Reinforcement Learning in Pac-man
+# Impact of Changing Transition Function in Deep RL
 
-## Demo
+## Motivation
+This paper explores the Out-of-Distribution (OOD) generalization problem as it pertains to Deep Q-Learning agents. In the OOD generalization problem, an agent is tested using data or an environment that is different from that upon which it was trained. Various effects, such as the quantity of training time/data and exact environment/data upon which the agent was trained, determine how well the agent performs in the unique tests. 
 
-[![Demo](https://github.com/tychovdo/PacmanDQN/blob/master/videos/PacmanDQN_wingif.gif)](https://youtu.be/QilHGSYbjDQ)
-
-## Example usage
-
-Run a model on `smallGrid` layout for 6000 episodes, of which 5000 episodes
-are used for training.
-
-```
-$ python3 pacman.py -p PacmanDQN -n 6000 -x 5000 -l smallGrid
-```
-
-### Layouts
-Different layouts can be found and created in the `layouts` directory
-
-### Parameters
-
-Parameters can be found in the `params` dictionary in `pacmanDQN_Agents.py`. <br />
- <br />
-Models are saved as "checkpoint" files in the `/saves` directory. <br />
-Load and save filenames can be set using the `load_file` and `save_file` parameters. <br />
- <br />
-Episodes before training starts: `train_start` <br />
-Size of replay memory batch size: `batch_size` <br />
-Amount of experience tuples in replay memory: `mem_size` <br />
-Discount rate (gamma value): `discount` <br />
-Learning rate: `lr` <br />
- <br />
-Exploration/Exploitation (ε-greedy): <br />
-Epsilon start value: `eps` <br />
-Epsilon final value: `eps_final` <br />
-Number of steps between start and final epsilon value (linear): `eps_step` <br />
-
-## Citation
-
-Please cite this repository if it was useful for your research:
-
-```
-@article{van2016deep,
-  title={Deep Reinforcement Learning in Pac-man},
-  subtitle={Bachelor Thesis},
-  author={van der Ouderaa, Tycho},
-  year={2016},
-  school={University of Amsterdam},
-  type={Bachelor Thesis},
-}
-
-```
-
-* [van der Ouderaa, Tycho (2016). Deep Reinforcement Learning in Pac-man.](https://moodle.umons.ac.be/pluginfile.php/404484/mod_folder/content/0/Pacman_DQN.pdf)
-
-## Requirements
-
-- `python==3.5.1`
-- `tensorflow==0.8rc`
+## Approach
+To examine this problem, we trained a Deep Q-Learning agent to play the game Pac-Man, modified to be played on a slightly smaller layout. To create differences in the training and testing environments, we altered the ghost transition functions. In particular, four classes of ghost agents were created, each of varying levels of aggression and awareness. Furthermore, various layer counts were used for the DQN, as we aimed to examine potential differences in performance across this axis. Thus, while we focus primarily on the former, our research question is two fold. We examine how changing ghost movement probabilities to be different in testing than it was in training affects the performance of the reinforcement learning agent. We further examine how the number of layers used affects agent performance within across the changes in transition function. 
 
 ## Acknowledgements
+
+Application of DQN Framework to Pac-Man by Tycho van der Ouderaa
+* [van der Ouderaa, Tycho (2016). Deep Reinforcement Learning in Pac-man.](https://moodle.umons.ac.be/pluginfile.php/404484/mod_folder/content/0/Pacman_DQN.pdf)
 
 DQN Framework by  (made for ATARI / Arcade Learning Environment)
 * [deepQN_tensorflow](https://github.com/mrkulk/deepQN_tensorflow) ([https://github.com/mrkulk/deepQN_tensorflow](https://github.com/mrkulk/deepQN_tensorflow))
