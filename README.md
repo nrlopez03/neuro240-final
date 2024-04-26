@@ -8,7 +8,7 @@ To examine this problem, we trained a Deep Q-Learning agent to play the game Pac
 
 ## Acknowledgements
 
-Application of DQN Framework to Pac-Man by Tycho van der Ouderaa
+Application of DQN Framework to Pac-Man by Tycho van der Ouderaa:
 * [van der Ouderaa, Tycho (2016). Deep Reinforcement Learning in Pac-man.](https://moodle.umons.ac.be/pluginfile.php/404484/mod_folder/content/0/Pacman_DQN.pdf)
 
 DQN Framework by  (made for ATARI / Arcade Learning Environment)
