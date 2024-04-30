@@ -23,11 +23,11 @@ from collections import deque
 
 # Neural nets
 import tensorflow as tf
-from DQN_4Layer import *
+from DQN_5Layer import *
 
 params = {
     # Model backups
-    'load_file': 'saves/5kIters/model-Directional_60783_4773',
+    'load_file': 'saves/model-50k_Directional_5_1031390_44557',
     'save_file': None,
     'save_interval' : 10000, 
 
