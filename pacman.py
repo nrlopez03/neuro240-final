@@ -14,6 +14,7 @@
 # for tracking stats only
 layers = 4
 trainGames = 5000
+logging = False
 
 
 """
@@ -537,7 +538,7 @@ def readCommand(argv):
     parser.add_option('-t', '--textGraphics', action='store_true', dest='textGraphics',
                       help='Display output as text only', default=False)
     parser.add_option('-q', '--quietTextGraphics', action='store_true', dest='quietGraphics',
-                      help='Generate minimal output and no graphics', default=True)
+                      help='Generate minimal output and no graphics', default=False)
     parser.add_option('-g', '--ghosts', dest='ghost',
                       help=default(
                           'the ghost agent TYPE in the ghostAgents module to use for training'),
@@ -751,18 +752,19 @@ def runGames(layout, pacman, ghosts, ghostsTest, display, numGames, record, numT
         
         testGames = numGames - numTraining
         
-        # Define the new row data
-        new_row = [ghosts[0].__class__.__name__, ghostsTest[0].__class__.__name__, avgScore, winRate, testGames, layers, trainGames]
+        if logging:
+            # Define the new row data
+            new_row = [ghosts[0].__class__.__name__, ghostsTest[0].__class__.__name__, avgScore, winRate, testGames, layers, trainGames]
 
-        # Specify the path to your CSV file
-        csv_file = 'stats.csv'
+            # Specify the path to your CSV file
+            csv_file = 'stats.csv'
 
-        # Open the CSV file in append mode and write the new row
-        with open(csv_file, mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(new_row)
+            # Open the CSV file in append mode and write the new row
+            with open(csv_file, mode='a', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow(new_row)
 
-        print("Row added successfully.")
+            print("Row added successfully.")
 
     return games
 
