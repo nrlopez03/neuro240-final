@@ -14,7 +14,7 @@ To run the code, follow these steps:
 4. Run the following command:
 
  ```bash
- python3.8 pacman.py -p PacmanDQN -n numGames -x trainGames -l smallGrid -g trainGhost -s testGhost 
+ python pacman.py -p PacmanDQN -n numGames -x trainGames -l smallGrid -g trainGhost -s testGhost 
  ```
 where `numGames` is the total number of games to be played, `trainGames` is the number of training games, `trainGhost` is the class of ghost to be used during training, and `testGhost` is the class of ghost to be used during testing. 
 
